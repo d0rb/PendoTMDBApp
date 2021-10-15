@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/divider"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+
+    <RelativeLayout
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:background="#CCCCCC"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="193dp"
+            android:layout_height="298dp"
+            android:gravity="center" />
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="30">
+
+            <ImageButton
+                android:id="@+id/movieTitleImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/ReleaseDateTextView"
+                android:paddingTop="9dp"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:shadowColor="@color/colorPrimaryDark"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="20"
+                android:text="  Click here for more info"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp" />
+            <TextView
+                android:id="@+id/voteTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="6dp"
+                android:textSize="20dp"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:shadowColor="@color/colorPrimaryDark"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="9"
+                android:text="  99"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFFFFF" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="299dp"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:shadowColor="@color/design_default_color_on_secondary"
+                android:shadowDx="1"
+                android:shadowDy="1"
+
+                android:shadowRadius="6"
+                android:text="  Click on image for more"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/movieTitleImageView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            tools:ignore="ContentDescription"-->
+<!--            tools:srcCompat="@tools:sample/avatars" />-->
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/movieTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tvTitle"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="10"
+        android:textSize="20dp" />
+
+<!--    <TextView-->
+<!--        android:shadowColor="@color/colorAccent"-->
+<!--        android:shadowDx="1"-->
+<!--        android:shadowDy="1"-->
+<!--        android:shadowRadius="10"-->
+<!--        android:id="@+id/ReleaseDateTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="15dp"-->
+<!--        android:text="tvReleaseDate" />-->
+
+<!--    <TextView-->
+<!--        android:shadowColor="@color/colorAccent"-->
+<!--        android:shadowDx="1"-->
+<!--        android:shadowDy="1"-->
+<!--        android:shadowRadius="10"-->
+<!--        android:id="@+id/voteTextView"-->
+<!--        android:textSize="15dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textAlignment="center"-->
+<!--        android:text="tvVote" />-->
+
+    <TextView
+        android:shadowColor="@color/colorPrimary"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="10"
+        android:textSize="17dp"
+        android:id="@+id/descriptionTetView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="tvOverview" />
+    <View
+        android:layout_marginTop="10dp"
+        android:id="@+id/view1"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#9C27B0"/>
+</LinearLayout>
