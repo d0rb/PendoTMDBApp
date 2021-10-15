@@ -77,9 +77,7 @@
 <div align="center">
 
 ## App Preview
-![Screenshot_2](Screenshot_1.png "Screenshot_2")
-
-![Screenshot_2](Screenshot_1.png "Screenshot_2")
+![Screenshot_2](Screenshot_1.png "Screenshot_2")  ![Screenshot_2](Screenshot_1.png "Screenshot_2")
 
 
 ![app gif](app.gif "app gif")
