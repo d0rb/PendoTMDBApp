@@ -19,7 +19,7 @@
 ## Check points:
 :white_check_mark: *Movie list activity , search activity , selection movie display activity .*
 
-:white_check_mark: *Using discover/movie , discover/movie , search/movie , search/keyword*
+:white_check_mark: *Using discover/movie  , search/movie , search/keyword*
 
 :white_check_mark: *Autocomplete*
 
