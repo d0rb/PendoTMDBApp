@@ -25,10 +25,11 @@
 
 :white_check_mark: *RecyclerView*
 
+:white_check_mark: *Infinite scroll ( up to total_pages value )*
+
 :white_check_mark: *MVVM*
 
 :white_check_mark: *Custom ActionBar*
-
 
 ## Notes: :newspaper:
 
