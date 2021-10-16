@@ -53,25 +53,15 @@ import retrofit2.Response;
 public class SearchActivity extends AppCompatActivity {
 
     private  AutoCompleteTextView autoCompleteTextView;
-
     private  TextView titleBarTextView;
-
     private  Button goBtn,backbtn;
-    private  ProgressBar prBar;
-    private static RecyclerView recyclerView;
-    private static List<movieObj> movieList;
 
+    private static List<movieObj> movieList;
     private static ArrayList<String> moviesArrayList,temp_moviesArrayList; // Movies array -> recyclerView
-    private  ArrayAdapter arrayAdapter; // Titles array -> @<-autoCompleteTextView
+    private static ArrayAdapter arrayAdapter; // Titles array -> @<-autoCompleteTextView
 
     private static Intent intent;
-    private static boolean loaded = false; // Helpful for the ProgressBar
-    private static String pref_mode = "popularity.desc";  // default sort_by selection
-    private static String pref_mode_String = "Popularity"; // default sort_by selection name
-
-    private static int pages_counter = 1 ; // Page counter to get all 10 pages ( about 1000 results ) value++ at line 102
     private static int total_pages = 1;
-    private static final String url = null;
 
     private static final String search_keyword_api = "https://api.themoviedb.org/3/search/keyword?api_key=25e64eec07c17eac5aad3d6abfdb6d53&&query=";
     private static String search_keyword;
@@ -232,35 +222,6 @@ public class SearchActivity extends AppCompatActivity {
             Log.e("Debug "+ SearchActivity.class.getSimpleName(), throwable.toString());
         }
     };
-
-    /**
-     * @apiNote view control to help with pR bar
-     * @param action 0 all view is off pr is on , 1 all view is on pr is off.
-     */
-    private void controlView(int action){
-        switch (action) {// 0 - off , 1 - on
-            case 0:
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        autoCompleteTextView.setVisibility(View.GONE);
-                        recyclerView.setVisibility(View.GONE);
-                        prBar.setVisibility(View.VISIBLE);
-                    }
-                });
-                break;
-            case 1:
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        autoCompleteTextView.setVisibility(View.VISIBLE);
-                        recyclerView.setVisibility(View.VISIBLE);
-                        prBar.setVisibility(View.GONE);
-                    }
-                });
-                break;
-        }
-    }
 
 
     public class getRawJSON extends AsyncTask<String,String,String> {

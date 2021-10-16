@@ -48,17 +48,19 @@ public class MainActivity extends AppCompatActivity {
     private static List<movieObj> movieList;
     private Bundle extras;
     private static ArrayList<String> moviesArrayList,temp_moviesArrayList; // Movies array -> recyclerView
-    private static int total_pages = 1;
+    private static int total_pages = 1; // Total pages per call.
     private static Intent intent;
     private static boolean loaded = false; // Helpful for the ProgressBar
     private static String pref_mode = "popularity.desc";  // default sort_by selection
     private static String pref_mode_String = "Popularity"; // default sort_by selection name
-    private String search_keyword;
+    private static String search_keyword;
     private static int pages_counter = 1 ; // Page counter to get all 10 pages ( about 1000 results ) value++ at line 102
     private static int page_size = 0;
     private static boolean loading = true;
     private static boolean isSearch = false;
     private static int pastVisiblesItems, visibleItemCount, totalItemCount;
+
+    // For the rawJSon method.
     private static String mainURL;
     private static String _mainURL = "https://api.themoviedb.org/3/discover/movie?api_key=25e64eec07c17eac5aad3d6abfdb6d53&sort_by=";
 
@@ -69,18 +71,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         extras = getIntent().getExtras();
         try{
+            //Checking of the user came from the search activity with a search term.
             extras = getIntent().getExtras();
             isSearch = extras.getBoolean("came_from_search");
             search_keyword = extras.getString("search_keyword");
             mainURL = extras.getString("URL");
         }catch (NullPointerException e){
+            //using the NullPointerException catch to know its not a search.
             isSearch = false;
         };
         popularBtn = findViewById(R.id.popularBtn);
         topVotedBtn = findViewById(R.id.topVotedBtn);
         newestBtn  = findViewById(R.id.newestBtn);
 
-
+        // Action bar
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.actionbar_layout);
         titleBarTextView = findViewById(R.id.currentSelctionTextView);
@@ -90,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
         titleBarTextView.setText("Selction mode : "+pref_mode);
 
         prBar = (ProgressBar) findViewById(R.id.progressBar1);
-
         recyclerView = findViewById(R.id.rvMovieList);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
