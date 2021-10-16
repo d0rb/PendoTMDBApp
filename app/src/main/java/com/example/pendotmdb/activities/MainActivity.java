@@ -45,9 +45,6 @@ import java.util.List;
 // TODO: 11/10/2021 add animation to the listivew
 
 public class MainActivity extends AppCompatActivity {
-
-    private  AutoCompleteTextView autoCompleteTextView;
-
     private  TextView titleBarTextView;
     private  Button popularBtn,topVotedBtn,newestBtn, searchBtn , backBtn;
     private  ProgressBar prBar;
@@ -271,19 +268,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private final Callback<movieListObj> searchCallBack = new Callback<movieListObj>() {
-
-        @Override
-        public void onResponse(@NonNull Call<movieListObj> call, Response<movieListObj> response) {
-            assert response.body() != null;
-            Log.d("Dorbe", String.valueOf(response.body().getMovieList().size()));
-
-        }
-        @Override
-        public void onFailure(@NonNull Call<movieListObj> call, Throwable throwable) {
-            Log.e("Debug "+ MainActivity.class.getSimpleName(), throwable.toString());
-        }
-    };
     /**
      * @apiNote view control to help with pR bar
      * @param action 0 all view is off pr is on , 1 all view is on pr is off.
@@ -294,7 +278,6 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //autoCompleteTextView.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
                         prBar.setVisibility(View.VISIBLE);
                     }
@@ -304,7 +287,6 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //autoCompleteTextView.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.VISIBLE);
                         prBar.setVisibility(View.GONE);
                     }

@@ -128,18 +128,18 @@ public class SearchActivity extends AppCompatActivity {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 if (imm.isActive())
                     imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                     search_keyword = searchEditText.getText().toString();
+                if(search_keyword.length()>=3 && !search_keyword.isEmpty()){
+                    intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("came_from_search",true);
+                    intent.putExtra("search_keyword",search_keyword);
+                    intent.putExtra("URL",search_keyword_api+search_keyword);
+                    startActivity(intent);
 
-                // since autoCompleteTextView return wrong position about the item regarding to the original array ( movieList ),
-                // here I compare between two strings to  find  the accurate position,
+                }else{
+                    Toast.makeText(getApplicationContext(),"Sorry ,search's too short! at least 3 characters",Toast.LENGTH_LONG).show();
+                }
 
-                int movie_id = helpers.getMovieId(movieList,autoCompleteTextView.getAdapter().getItem(i).toString());
-                intent = new Intent(getApplicationContext(), MovieActivity.class);
-                intent.putExtra("Title",movieList.get(movie_id).getTitle());
-                intent.putExtra("Overview",movieList.get(movie_id).getOverview());
-                intent.putExtra("ReleaseDate",movieList.get(movie_id).getReleaseDate());
-                intent.putExtra("VoteAverage",String.format(Locale.ENGLISH, "%.1f", movieList.get(movie_id).getVoteAverage()));
-                intent.putExtra("PosterImage",movieList.get(movie_id).getPosterPath());
-                startActivity(intent);
             }
         });
 
