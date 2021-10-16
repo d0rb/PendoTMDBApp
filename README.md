@@ -50,25 +50,25 @@
 ### Classed and methods :
 
 ##### Activities
-
-
- [MainActivity](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
-  [MovieActivity](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
-   [SearchActivity](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+[MainActivity](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+ 
+[MovieActivity](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+  
+[SearchActivity](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
   
  ##### Adapters
- [MovieListAdapter](blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieListAdapter.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
-*based on [movieObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
+ [MovieListAdapter](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieListAdapter.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+*based on [movieObj](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
  ##### Api
-**[apiHandler](blob/master/app/src/main/java/com/example/pendotmdb/api/apiHandler.java)**  *API handler class making the calls to the service , having two main methods,*
+**[apiHandler](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/api/apiHandler.java)**  *API handler class making the calls to the service , having two main methods,*
 *getMovie by id returning movie object , getMovieList
-**[apiInterface](blob/master/app/src/main/java/com/example/pendotmdb/api/apiInterface.java)**  *Interface for the API calls methods.*
+**[apiInterface](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/api/apiInterface.java)**  *Interface for the API calls methods.*
  ##### Extra
- [helpers](blob/master/app/src/main/java/com/example/pendotmdb/extra/helpers.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
-*based on [movieObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
+ [helpers](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/extra/helpers.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+*based on [movieObj](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
  ##### Objects
- [movieListObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieListObj.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
-  [movieObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+ [movieListObj](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieListObj.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+  [movieObj](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
 
   ##### Layouts
 [activity_main](tree/master/app/src/main/res/layout/activity_main.xml)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
