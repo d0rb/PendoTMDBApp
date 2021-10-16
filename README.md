@@ -51,32 +51,32 @@
 ### Classed and methods :
 
 ##### Activities
-[MainActivity](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *Main Activity , shows the movies in a recyclerview*
+[MainActivity](https://github.com/D0rb/PendoTMDBApp/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *Main Activity , shows the movies in a recyclerview*
  
-[MovieActivity](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The activity where a single movie is shown*
+[MovieActivity](https://github.com/D0rb/PendoTMDBApp/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The activity where a single movie is shown*
   
-[SearchActivity](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The activity where the user should search at*
+[SearchActivity](https://github.com/D0rb/PendoTMDBApp/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The activity where the user should search at*
   
  ##### Adapters
- [MovieListAdapter](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieListAdapter.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
-*based on [movieObj](https://github.com/D0rb/PendoTMDB/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
+ [MovieListAdapter](https://github.com/D0rb/PendoTMDBApp/https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieListAdapter.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+*based on [movieObj](https://github.com/D0rb/PendoTMDBApp/https://github.com/D0rb/pendotmdb/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
  ##### Api
-**[apiHandler](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/api/apiHandler.java)** *API handler class making the calls to the service*
+**[apiHandler](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/api/apiHandler.java)** *API handler class making the calls to the service*
 
-**[apiInterface](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/api/apiInterface.java)**  *Interface for the API calls methods.*
+**[apiInterface](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/api/apiInterface.java)**  *Interface for the API calls methods.*
  ##### Extra
- [helpers](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/extra/helpers.java)  *Extra functions that I used in this project.*
+ [helpers](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/extra/helpers.java)  *Extra functions that I used in this project.*
  ##### Objects
- [movieListObj](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieListObj.java)  *The movie list object , holds as List of movies based on the call.*
+ [movieListObj](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieListObj.java)  *The movie list object , holds as List of movies based on the call.*
 
-  [movieObj](https://github.com/D0rb/PendoTMDB/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java)  *The movie object , holds as a movie based on the call.*
+  [movieObj](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java)  *The movie object , holds as a movie based on the call.*
 
   ##### Layouts
-[activity_main](https://github.com/D0rb/PendoTMDB/tree/master/app/src/main/res/layout/activity_main.xml) *The layout for the main activity ,uses [cell](https://github.com/D0rb/PendoTMDB/tree/master/app/src/main/res/layout/cell.xml)*
+[activity_main](https://github.com/D0rb/PendoTMDBApp/tree/master/app/src/main/res/layout/activity_main.xml) *The layout for the main activity ,uses [cell](https://github.com/D0rb/PendoTMDBApp/tree/master/app/src/main/res/layout/cell.xml)*
 
-[activity_movie](https://github.com/D0rb/PendoTMDB/tree/master/app/src/main/res/layout/activity_movie.xml)  *The layout for the movie activity.*
+[activity_movie](https://github.com/D0rb/PendoTMDBApp/tree/master/app/src/main/res/layout/activity_movie.xml)  *The layout for the movie activity.*
 
-[activity_search](https://github.com/D0rb/PendoTMDB/tree/master/app/src/main/res/layout/activity_search.xml)  *The layout for the search activity.*
+[activity_search](https://github.com/D0rb/PendoTMDBApp/tree/master/app/src/main/res/layout/activity_search.xml)  *The layout for the search activity.*
 
 ### Sources that I used :
 *TMDB documantion*
