@@ -66,7 +66,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
         }else{
             holder.movieTitleTextView.setText(movie.getTitle());
         }
-        if(movie.getReleaseDate().isEmpty()){
+        if(movie.getReleaseDate()==null){
             holder.ReleaseDateTextView.setText("No data");
         }else{
             holder.ReleaseDateTextView.setText(movie.getReleaseDate());

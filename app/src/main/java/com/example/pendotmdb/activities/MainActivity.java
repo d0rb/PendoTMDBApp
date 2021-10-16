@@ -2,14 +2,12 @@ package com.example.pendotmdb.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
-import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -27,14 +25,20 @@ import com.example.pendotmdb.extra.helpers;
 import com.example.pendotmdb.api.apiHandler;
 import com.example.pendotmdb.objects.movieListObj;
 import com.example.pendotmdb.objects.movieObj;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 // TODO: 11/10/2021 add activity change animation
 // TODO: 13/10/2021 try removing libs and nav bar.
@@ -45,40 +49,53 @@ public class MainActivity extends AppCompatActivity {
     private  AutoCompleteTextView autoCompleteTextView;
 
     private  TextView titleBarTextView;
-    private  Button popularBtn,topVotedBtn,newestBtn;
+    private  Button popularBtn,topVotedBtn,newestBtn, searchBtn , backBtn;
     private  ProgressBar prBar;
     private static RecyclerView recyclerView;
     private static List<movieObj> movieList;
-
+    private Bundle extras;
     private static ArrayList<String> moviesArrayList,temp_moviesArrayList; // Movies array -> recyclerView
-    private  ArrayAdapter arrayAdapter; // Titles array -> @<-autoCompleteTextView
-
+    private static int total_pages = 1;
     private static Intent intent;
     private static boolean loaded = false; // Helpful for the ProgressBar
     private static String pref_mode = "popularity.desc";  // default sort_by selection
     private static String pref_mode_String = "Popularity"; // default sort_by selection name
-
+    private String search_keyword;
     private static int pages_counter = 1 ; // Page counter to get all 10 pages ( about 1000 results ) value++ at line 102
-
+    private static int page_size = 0;
     private static boolean loading = true;
+    private static boolean isSearch = false;
     private static int pastVisiblesItems, visibleItemCount, totalItemCount;
-
+    private static String mainURL;
+    private static String _mainURL = "https://api.themoviedb.org/3/discover/movie?api_key=25e64eec07c17eac5aad3d6abfdb6d53&sort_by=";
 
     @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_list);
-
+        setContentView(R.layout.activity_main);
+        extras = getIntent().getExtras();
+        try{
+            extras = getIntent().getExtras();
+            isSearch = extras.getBoolean("came_from_search");
+            search_keyword = extras.getString("search_keyword");
+            mainURL = extras.getString("URL");
+        }catch (NullPointerException e){
+            isSearch = false;
+        };
         popularBtn = findViewById(R.id.popularBtn);
         topVotedBtn = findViewById(R.id.topVotedBtn);
         newestBtn  = findViewById(R.id.newestBtn);
 
+
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.actionbar_layout);
         titleBarTextView = findViewById(R.id.currentSelctionTextView);
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setVisibility(View.GONE);
+        searchBtn = findViewById(R.id.searchBtn);
         titleBarTextView.setText("Selction mode : "+pref_mode);
-        autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+
         prBar = (ProgressBar) findViewById(R.id.progressBar1);
 
         recyclerView = findViewById(R.id.rvMovieList);
@@ -100,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
                     pastVisiblesItems = mLayoutManager.findFirstVisibleItemPosition();
                     if (loading) {
                         if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
-                            loaded = false;
-                            Log.v("...", "Last Item Wow !");
-                            apiHandler.getMovieList(pref_mode,pages_counter++).enqueue(movieListCallback);
-                            loaded = true;
+                                loaded = false;
+                                apiHandler.getMovieList(pref_mode,pages_counter++).enqueue(movieListCallback);
+                                loaded = true;
+
                         }
                     }
                 }
@@ -119,33 +136,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                // Hiding the keyboard on activity change
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm.isActive())
-                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-
-                // since autoCompleteTextView return wrong position about the item regarding to the original array ( movieList ),
-                // here I compare between two strings to  find  the accurate position,
-                int movie_id = helpers.getMovieId(movieList,autoCompleteTextView.getAdapter().getItem(i).toString());
-
-                intent = new Intent(getApplicationContext(), MovieActivity.class);
-                intent.putExtra("Title",movieList.get(movie_id).getTitle());
-                intent.putExtra("Overview",movieList.get(movie_id).getOverview());
-                intent.putExtra("ReleaseDate",movieList.get(movie_id).getReleaseDate());
-                intent.putExtra("VoteAverage",String.format(Locale.ENGLISH, "%.1f", movieList.get(movie_id).getVoteAverage()));
-                intent.putExtra("PosterImage",movieList.get(movie_id).getPosterPath());
+            public void onClick(View view) {
+                intent = new Intent(getApplicationContext(), SearchActivity.class);
                 startActivity(intent);
             }
         });
+
         topVotedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 pages_counter = 1;
                 pref_mode = "vote_count.desc";
+                mainURL = _mainURL+pref_mode;
                 pref_mode_String = "Top Voted";
                 movieList.clear();
                 moviesArrayList.clear();
@@ -159,11 +165,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 pages_counter = 1;
                 pref_mode = "popularity.desc";
+                mainURL = _mainURL+pref_mode;
                 pref_mode_String = "Popular";
                 movieList.clear();
                 moviesArrayList.clear();
                 getMovieList(pref_mode,0);
-
                 loaded = false; // pR bar.
             }
         });
@@ -172,27 +178,34 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 pref_mode = "release_date.asc";
+                mainURL = _mainURL+pref_mode;
                 pref_mode_String = "Newest";
                 pages_counter = 1;
                 movieList.clear();
                 moviesArrayList.clear();
                 getMovieList(pref_mode,1);
-
                 loaded = false; // pR bar.
             }
         });
-
-        getMovieList(pref_mode,0);
-        autoCompleteTextView.setAdapter(arrayAdapter);
+        if(!isSearch) {
+            getMovieList(pref_mode, 0);
+        }else {
+            titleBarTextView.setText("Search : "+search_keyword);
+            getRawJSON  getRawJSON = new getRawJSON();
+            getRawJSON.execute(mainURL);
+            searchMovie(search_keyword);
+        }
     }
 
+    private void searchMovie(String option) {
+        apiHandler.searchMovie(option).enqueue(searchMovieCallBack);
+    }
 
     /**
      * @apiNote in order to query for the newest movies we need to qurey with a date.
      * @param action 1 for newest movies , 2 for all the rest.
      */
     private void getMovieList(String pref_mode,int action) {
-
         if(action == 1) {
             apiHandler.getMovieList(helpers.getCurrentDate(),pref_mode,pages_counter).enqueue(movieListCallback);
         }else{
@@ -218,20 +231,59 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             moviesArrayList.addAll(moviesArrayList.size(),temp_moviesArrayList);
-            arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_dropdown_item_1line, moviesArrayList);
-            autoCompleteTextView.setAdapter(arrayAdapter);
 
             recyclerView.setAdapter(new MovieListAdapter(movieList));
             titleBarTextView.setText("Selction mode : "+pref_mode_String);
             controlView(1);
         }
+
+        @Override
+        public void onFailure(@NonNull Call<movieListObj> call, Throwable throwable) {
+            Log.e("Debug "+ MainActivity.class.getSimpleName(), throwable.toString());
+        }
+    };
+    private final Callback<movieListObj> searchMovieCallBack = new Callback<movieListObj>() {
+
+        @Override
+        public void onResponse(@NonNull Call<movieListObj> call, Response<movieListObj> response) {
+            assert response.body() != null;
+            controlView(0);
+
+            temp_moviesArrayList = new ArrayList<>();
+            for(int k = 1 ; k < total_pages ; k ++ ){
+                for(int i = 1 ; i < response.body().getMovieList().size();i++){
+                    movieList.add(response.body().getMovieList().get(i));
+                }
+            }
+            for(int i = 0 ; i < movieList.size() ; i++){
+                temp_moviesArrayList.add(movieList.get(i).getTitle());
+            }
+
+            moviesArrayList.addAll(moviesArrayList.size(),temp_moviesArrayList);
+
+            recyclerView.setAdapter(new MovieListAdapter(movieList));
+            controlView(1);
+        }
+
         @Override
         public void onFailure(@NonNull Call<movieListObj> call, Throwable throwable) {
             Log.e("Debug "+ MainActivity.class.getSimpleName(), throwable.toString());
         }
     };
 
+    private final Callback<movieListObj> searchCallBack = new Callback<movieListObj>() {
 
+        @Override
+        public void onResponse(@NonNull Call<movieListObj> call, Response<movieListObj> response) {
+            assert response.body() != null;
+            Log.d("Dorbe", String.valueOf(response.body().getMovieList().size()));
+
+        }
+        @Override
+        public void onFailure(@NonNull Call<movieListObj> call, Throwable throwable) {
+            Log.e("Debug "+ MainActivity.class.getSimpleName(), throwable.toString());
+        }
+    };
     /**
      * @apiNote view control to help with pR bar
      * @param action 0 all view is off pr is on , 1 all view is on pr is off.
@@ -242,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        autoCompleteTextView.setVisibility(View.GONE);
+                        //autoCompleteTextView.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
                         prBar.setVisibility(View.VISIBLE);
                     }
@@ -252,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        autoCompleteTextView.setVisibility(View.VISIBLE);
+                        //autoCompleteTextView.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.VISIBLE);
                         prBar.setVisibility(View.GONE);
                     }
@@ -260,5 +312,29 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+    public class getRawJSON extends AsyncTask<String,String,String> {
 
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                URL url =new URL(strings[0]);
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url(url)
+                        .build();
+                com.squareup.okhttp.Response response = client.newCall(request).execute();
+                String tempstring = response.body().string();
+                JSONObject tempJSJsonObject = new JSONObject(tempstring);
+                try {
+                    total_pages = tempJSJsonObject.getInt("total_pages");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
 }

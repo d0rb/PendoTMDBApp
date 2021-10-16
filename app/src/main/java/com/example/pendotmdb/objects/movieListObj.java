@@ -6,11 +6,6 @@ import java.util.List;
 
 public class movieListObj {
 
-    //page	1
-    //total_results	6885
-    //total_pages	345
-    //results
-
     @SerializedName("results")
     private List<movieObj> movieList;
 

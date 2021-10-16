@@ -33,37 +33,45 @@
 *any worse since I have used action bar on the MainActivity and also added some sort of actionbar to MovieActivity.*
 
 ### Libraries that I used and why:
-**okhttp**  *used to retrieve youutbe's video link from the raw api*
+**[okhttp](https://square.github.io)**  *used to retrieve youutbe's video link from the raw api*
 
-**YouTubeAndroidPlayerApi.jar**  *This libary is needed inorder to have a youtubeview.*
+**[YouTubeAndroidPlayerApi.jar](https://developers.google.com/youtube/android/player/downloads)**  *This libary is needed inorder to have a youtubeview.*
 
+**[retrofit](https://square.github.io/retrofit/)**  *My rest client for handling the API calls.*
 
+**[picasso]([https://square.github.io/picasso)**  *Libary which I used to load images from a url to a view.*
 
-**retrofit**  *My rest client for handling the API calls.*
+**[androidx.recyclerview](https://developer.android.com/jetpack/androidx/releases/recyclerview)**  *Better when fetching large sets of data also minimizing memory usage.*
 
-
-**picasso**  *Libary which I used to load images from a url to a view.*
-
-
-**com.google.android.material**  *Needed for better UI experience*
-
-
-**androidx.recyclerview**  *Better when fetching large sets of data also minimizing memory usage.*
-
+[MainActivity](blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)
 
 
 
 ### Classed and methods :
-**MovieListAdapter**  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
 
-*based on com.example.pendotmdb.objects.movieObj;*
+##### Activities
+[MainActivity](blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+[MovieActivity](blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+[SearchActivity](blob/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
 
-**apiHandler**  *API handler class making the calls to the service , having two main methods,*
+##### Adapters
+[MovieListAdapter](blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieListAdapter.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+*based on [movieObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
+##### Api
+**[apiHandler](blob/master/app/src/main/java/com/example/pendotmdb/api/apiHandler.java)**  *API handler class making the calls to the service , having two main methods,*
 *getMovie by id returning movie object , getMovieList
+**[apiInterface](blob/master/app/src/main/java/com/example/pendotmdb/api/apiInterface.java)**  *Interface for the API calls methods.*
+##### Extra
+[helpers](blob/master/app/src/main/java/com/example/pendotmdb/extra/helpers.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+*based on [movieObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
+##### Objects
+[movieListObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieListObj.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+[movieObj](blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
 
-
-**apiInterface**  *Interface for the API calls methods.*
-
+##### Layouts
+[activity_main](tree/master/app/src/main/res/layout/activity_main.xml)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+[activity_movie](tree/master/app/src/main/res/layout/activity_movie.xml)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+[activity_movie_list](tree/master/app/src/main/res/layout/activity_movie_list.xml)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
 ### Sources that I used :
 *TMDB documantion*
 
@@ -78,6 +86,4 @@
 
 ## App Preview
 ![Screenshot_2](Screenshot_1.png "Screenshot_1")  ![Screenshot_2](Screenshot_1.png "Screenshot_2")
-
-
 ![app gif](app.gif "app gif")

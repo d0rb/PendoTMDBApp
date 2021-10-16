@@ -12,6 +12,7 @@ public class movieObj {
     @SerializedName("title")
     private String title;
 
+
     // TextView tvReleaseDate
     @SerializedName("release_date")
     private String releaseDate;

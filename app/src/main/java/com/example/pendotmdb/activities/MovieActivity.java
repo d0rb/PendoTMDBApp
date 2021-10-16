@@ -1,5 +1,6 @@
 package com.example.pendotmdb.activities;
 
+import android.app.ActionBar;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,9 +19,11 @@ import com.squareup.picasso.Picasso;
 import androidx.annotation.RequiresApi;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +37,8 @@ public class MovieActivity extends YouTubeBaseActivity implements YouTubePlayer.
     private YouTubePlayerView youTubePlayerView;
     private ProgressBar prBar;
     private Bundle extras;
+
+    private Button backbtn , searchBtn;
     private static final String google_api_key = "AIzaSyDW2lt2O8nMQ_TlcOe8lTrh3Au8uPItyS0";
     private static String youtube_video_link = "";
     private static String video_url, videoTitle;
@@ -54,27 +59,37 @@ public class MovieActivity extends YouTubeBaseActivity implements YouTubePlayer.
         ReleaseDateTextView = findViewById(R.id.ReleaseDateTextView);
         voteTextView = findViewById(R.id.voteTextView);
         descriptionTetView = findViewById(R.id.descriptionTetView);
+        backbtn = findViewById(R.id.backBtn);
         extras = getIntent().getExtras();
         movieTitleTextView.setText(extras.getString("Title"));
         ReleaseDateTextView.setText(extras.getString("ReleaseDate"));
         voteTextView.setText(extras.getString("VoteAverage"));
         descriptionTetView.setText(extras.getString("Overview"));
-
+        searchBtn = findViewById(R.id.searchBtn);
         movieTitleImageView.setVisibility(View.GONE);
         movieTitleTextView.setVisibility(View.GONE);
         ReleaseDateTextView.setVisibility(View.GONE);
         voteTextView.setVisibility(View.GONE);
         descriptionTetView.setVisibility(View.GONE);
 
-        prBar = (ProgressBar) findViewById(R.id.progressBar);
-        youTubePlayerView = (YouTubePlayerView) findViewById(R.id.player);
+        prBar = findViewById(R.id.progressBar);
+        youTubePlayerView = findViewById(R.id.player);
 
         videoTitle = extras.getString("Title") + " Movie Trailer";
         video_url = youtube_url_array[0] + videoTitle + youtube_url_array[1] + google_api_key;
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MovieActivity.super.onBackPressed();
+            }
+        });
+
         video_id_task myAsyncTasks = new video_id_task();
         myAsyncTasks.execute();
 
-    }
+     }
+
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {

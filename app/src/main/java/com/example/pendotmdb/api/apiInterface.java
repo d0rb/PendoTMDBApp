@@ -30,4 +30,8 @@ public interface apiInterface {
     Call<movieListObj> getMovieList(@Query("page") int page, @Query("sort_by") String option, @Query("api_key") String apiKey);
     @GET("discover/movie")
     Call<movieListObj> getMovieList(@Query("release_date.gte") String date,@Query("page") int page, @Query("sort_by") String option, @Query("api_key") String apiKey);
+    @GET("search/movie")
+    Call<movieListObj> searchMovie(@Query("query") String option, @Query("api_key") String apiKey);
+    @GET("search/keyword")
+    Call<movieListObj> keywordSeach(@Query("query") String option, @Query("api_key") String apiKey);
 }

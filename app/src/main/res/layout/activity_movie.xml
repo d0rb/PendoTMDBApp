@@ -7,20 +7,29 @@
     android:background="#E4E4E4"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp">
+    >
+
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="30dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:background="@color/colorAccent"
-        android:orientation="vertical">
+
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:background="#9E004A"
+            android:layout_height="wrap_content"
+            android:text="Back"/>
+
 
         <TextView
             android:shadowColor="@color/design_default_color_background"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="10"
+            android:layout_marginLeft="76dp"
             android:textSize="20dp"
             android:textColor="#4D0077"
             android:id="@+id/movieTitleTextView"
@@ -37,64 +46,65 @@
         android:layout_height="match_parent"
         android:textColor="#ffffff"
         android:gravity="center"
+        android:padding="10dp"
         android:orientation="vertical">
-    <ImageView
-        android:text="click for more"
-        android:id="@+id/movieTitleImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="ContentDescription"
-        android:paddingTop="10dp"
-        tools:srcCompat="@tools:sample/avatars"/>
+        <ImageView
+            android:text="click for more"
+            android:id="@+id/movieTitleImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="ContentDescription"
+            android:paddingTop="10dp"
+            tools:srcCompat="@tools:sample/avatars"/>
 
 
 
-    <TextView
-        android:shadowColor="@color/colorAccent"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="10"
-        android:textSize="15dp"
-        android:textColor="#93004C"
-        android:id="@+id/ReleaseDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tvReleaseDate" />
+        <TextView
+            android:shadowColor="@color/colorAccent"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="10"
+            android:textSize="15dp"
+            android:textColor="#93004C"
+            android:id="@+id/ReleaseDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tvReleaseDate" />
 
-    <TextView
-        android:id="@+id/voteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tvVote"
-        android:textColor="#F45AAB"
-        android:textSize="15dp" />
+        <TextView
+            android:id="@+id/voteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tvVote"
+            android:textColor="#F45AAB"
+            android:textSize="15dp" />
 
-    <TextView
-        android:shadowColor="@color/colorAccent"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="10"
-        android:textSize="15dp"
-        android:textColor="#870047"
-        android:id="@+id/descriptionTetView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tvOverview"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:textAllCaps="false" />
+        <TextView
+            android:shadowColor="@color/colorAccent"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="10"
+            android:textSize="15dp"
+            android:textColor="#870047"
+            android:id="@+id/descriptionTetView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tvOverview"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:textAllCaps="false" />
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/player"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/player"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <ProgressBar
+        <ProgressBar
 
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="256dp" />
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="256dp" />
     </LinearLayout>
 </LinearLayout>

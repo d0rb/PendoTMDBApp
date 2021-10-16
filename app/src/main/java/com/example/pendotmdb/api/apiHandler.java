@@ -56,4 +56,10 @@ public class apiHandler {
     public static Call<movieListObj> getMovieList(String date,String option, int page) {
         return SERVICE.getMovieList(date,page,option,API_KEY);
     }
+    public static Call<movieListObj> searchMovie(String option) {
+        return SERVICE.searchMovie(option,API_KEY);
+    }
+    public static Call<movieListObj> searchBykeyword(String option) {
+        return SERVICE.keywordSeach(option,API_KEY);
+    }
 }

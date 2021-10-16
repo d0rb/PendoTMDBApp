@@ -17,12 +17,16 @@
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/divder" />
-
+        <activity
+            android:name=".activities.SearchActivity"
+            android:exported="true"
+            android:label="@string/title_activity_movie"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.MovieActivity"
             android:exported="true"
             android:label="@string/title_activity_movie"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar1" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
