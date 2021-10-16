@@ -50,9 +50,10 @@
 ### Classed and methods :
 
 ##### Activities
- [MainActivity](blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
-  [MovieActivity](blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
-   [SearchActivity](blob/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+
+ [MainActivity](tree/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+  [MovieActivity](tree/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
+   [SearchActivity](tree/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
   
  ##### Adapters
  [MovieListAdapter](blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieListAdapter.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
