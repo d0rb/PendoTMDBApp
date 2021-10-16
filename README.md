@@ -15,6 +15,21 @@
 
 *The main idea of this project is to parse [themoviedb.org](https://www.themoviedb.org/)* API
 *with different approaches.*
+
+## Check points:
+:white_check_mark: *Movie list activity , search activity , selection movie display activity .*
+
+:white_check_mark: *Using discover/movie , discover/movie , search/movie , search/keyword*
+
+:white_check_mark: *Autocomplete*
+
+:white_check_mark: *RecyclerView*
+
+:white_check_mark: *MVVM*
+
+:white_check_mark: *Custom ActionBar*
+
+
 ## Notes: :newspaper:
 
 **Screen size compatibility**  *I made a couple tweaks on the UI which may display differently across*
