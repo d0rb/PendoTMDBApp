@@ -72,8 +72,11 @@
 
   ##### Layouts
 [activity_main](https://github.com/D0rb/PendoTMDB/tree/master/app/src/main/res/layout/activity_main.xml)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+
 [activity_movie](https://github.com/D0rb/PendoTMDB/tree/master/app/src/main/res/layout/activity_movie.xml)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+
 [activity_movie_list](https://github.com/D0rb/PendoTMDB/tree/master/app/src/main/res/layout/activity_movie_list.xml)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM***
+
 ### Sources that I used :
 *TMDB documantion*
 
