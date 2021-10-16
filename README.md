@@ -1,21 +1,21 @@
 
 
-# Pendo Android app based on TMDB's api
+# Pendo Android app based on TMDB's api :iphone:
 
-## Info related to me:
+## Info related to me: :wave:
 **Name**  *Dor Bismuth*
 
 **email**  *dor.bismut@gmail.com*
 
 
-## Info related to the app:
+## Info related to the app: :point_left:
 *This is an native Android app written in Java.*
 
 *App built using Android Studio build 2020.3.1 and java version 1.8.0_301*
 
 *The main idea of this project is to parse [themoviedb.org](https://www.themoviedb.org/)* API
 *with different approaches.*
-## Notes:
+## Notes: :newspaper:
 
 **Screen size compatibility**  *I made a couple tweaks on the UI which may display differently across*
 
@@ -34,7 +34,7 @@
 
 *any worse since I have used action bar on the MainActivity and also added some sort of actionbar to MovieActivity.*
 
-### Libraries that I used and why:
+### Libraries that I used and why: :books:
 **[okhttp](https://square.github.io)**  *used to retrieve youtbe's video link from the raw api*
 
 **[YouTubeAndroidPlayerApi.jar](https://developers.google.com/youtube/android/player/downloads)**  *This libary is needed inorder to have a youtubeview.*
@@ -48,30 +48,31 @@
 
  
 
-### Classed and methods :
 
-##### Activities
+### Classed and methods : :open_book: 
+
+##### Activities :green_book:
 [MainActivity](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)  *Main Activity , shows the movies in a recyclerview*
  
 [MovieActivity](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieActivity.java)  *The activity where a single movie is shown*
   
 [SearchActivity](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/activities/SearchActivity.java)  *The activity where the user should search at*
   
- ##### Adapters
+ ##### Adapters :closed_book:
  [MovieListAdapter](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/activities/MovieListAdapter.java)  *The adapter for the RecyclerView, including the **ViewHolder** which is also my **MVVM** ,*
 *based on [movieObj](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java);*
- ##### Api
+ ##### Api :closed_book:
 **[apiHandler](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/api/apiHandler.java)** *API handler class making the calls to the service*
 
 **[apiInterface](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/api/apiInterface.java)**  *Interface for the API calls methods.*
- ##### Extra
+ ##### Extra  :orange_book:
  [helpers](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/extra/helpers.java)  *Extra functions that I used in this project.*
- ##### Objects
+ ##### Objects :orange_book:
  [movieListObj](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieListObj.java)  *The movie list object , holds as List of movies based on the call.*
 
   [movieObj](https://github.com/D0rb/PendoTMDBApp/blob/master/app/src/main/java/com/example/pendotmdb/objects/movieObj.java)  *The movie object , holds as a movie based on the call.*
 
-  ##### Layouts
+  ##### Layouts :scroll:
 [activity_main](https://github.com/D0rb/PendoTMDBApp/tree/master/app/src/main/res/layout/activity_main.xml) *The layout for the main activity ,uses [cell](https://github.com/D0rb/PendoTMDBApp/tree/master/app/src/main/res/layout/cell.xml)*
 
 [activity_movie](https://github.com/D0rb/PendoTMDBApp/tree/master/app/src/main/res/layout/activity_movie.xml)  *The layout for the movie activity.*
