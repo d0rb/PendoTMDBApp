@@ -49,9 +49,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-// TODO: 11/10/2021 add activity change animation
-// TODO: 13/10/2021 try removing libs and nav bar.
-// TODO: 11/10/2021 add animation to the listivew
 
 public class SearchActivity extends AppCompatActivity {
 

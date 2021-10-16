@@ -40,10 +40,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: 11/10/2021 add activity change animation
-// TODO: 13/10/2021 try removing libs and nav bar.
-// TODO: 11/10/2021 add animation to the listivew
-
 public class MainActivity extends AppCompatActivity {
     private  TextView titleBarTextView;
     private  Button popularBtn,topVotedBtn,newestBtn, searchBtn , backBtn;
