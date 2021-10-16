@@ -43,7 +43,6 @@
 
 **[androidx.recyclerview](https://developer.android.com/jetpack/androidx/releases/recyclerview)**  *Better when fetching large sets of data also minimizing memory usage.*
 
- [MainActivity](master/app/src/main/java/com/example/pendotmdb/activities/MainActivity.java)
 
  
 
