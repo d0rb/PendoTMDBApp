@@ -3,9 +3,6 @@
 # Pendo Android app based on TMDB's api :iphone:
 
 ## Info related to me: :wave:
-**Name**  *Dor Bismuth*
-
-**email**  *dor.bismut@gmail.com*
 
 
 ## Info related to the app: :point_left:
